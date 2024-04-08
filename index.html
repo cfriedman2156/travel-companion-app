@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Travel Companion App</title>
+</head>
+<body>
+    <header class="bg-primary">
+        <h1 class="text-5xl font-sans">Travel Companion App</h1>
+    </header>
+    <main>
+        <section id="float-left">
+            <section id="form-section">
+                <form>
+                    <h2>Departing From</h2>
+                    <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="departure-input">
+                    <h2>Destination</h2>
+                    <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="destination-input">
+                    <h2>Budget</h2>
+                    <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="budget-input">
+                    <br>
+                    <button class="btn btn-primary" id="submit-button">Submit</button>
+                </form>
+            </section>
+            <section id="search-history-section">
+                <h2>Search History</h2>
+                <section id="search-history-list">
+                    <!--Append Search History here-->
+                </section>
+            </section>
+        </section>
+        <section id="float-right">
+            <section id="results">
+                <!--Append Results Here-->
+            </section>
+        </section>
+    </main>
+    <footer>
+        <h2>Built by a unit of absolute units</h2>
+    </footer>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "assets/script.js"></script>
+</body>
+</html>
+
+
