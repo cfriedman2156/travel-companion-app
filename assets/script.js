@@ -5,7 +5,8 @@ const travelForm = document.querySelector("#form-section");
 const departureInput = document.querySelector("#departure-input");
 const destinationInput = document.querySelector("#destination-input");
 const budgetInput = document.querySelector("#budget-input");
-const resultsContainer = document.querySelector("#results")
+const searchHistory = document.querySelector("#search-history-section");
+const resultsContainer = document.querySelector("#results");
 
 //Here we take in the user input for their departure, destination, and budget
 const chooseYourCountry = function(event){
@@ -30,35 +31,39 @@ const chooseYourCountry = function(event){
 
 const countryCode = function(departure, destination){
 
-    const departureUrl = `https://ip-geo-location.p.rapidapi.com/ip/check?format=json&filter=${departure}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '65d425a615msh8b10438e995f535p1d297ajsn78f72a232e93',
-            'X-RapidAPI-Host': 'ip-geo-location.p.rapidapi.com'
-        }
-    };
-    
-    try {
-        const response = fetch(url, options);
-        const result = response.text();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
+    const departureUrl = `http://geodb-free-service.wirefreethought.com//v1/geo/countries?limit=5&offsett&namePrefix=${departure}`
+    fetch(departureUrl).then(function(response){
+        return response.json();
+
+    }).then (function(data){
+        console.log(data);
+        const departureCurrencyCode = data.list[0].currencyCodes;
+        console.log(departureCurrencyCode);
+    })
+
+    const destinationUrl = `http://geodb-free-service.wirefreethought.com//v1/geo/countries?limit=5&offsett&namePrefix=${destination}`
+    fetch(destinationUrl).then(function(response){
+        return response.json();
+
+    }).then (function(data2){
+        console.log(data2);
+        const destinationCurrencyCode = data2.list[0].currencyCodes;
+        console.log(destinationCurrencyCode);
+    })
+}
+    const currencyName = function(){
+
+    const currencyNameUrl = `https://v6.exchangerate-api.com/v6/${exchangeAPIkey}/codes`
+    fetch(currencyNameUrl).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log(data);
+    });
+}  
+
+const conversion = function (budget){
+
+    const conversionURL = `https://v6.exchangerate-api.com/v6/${exchangeAPIkey}/pair/${departureCurrencyCode}/${destinationCurrencyCode}/${budget}`
 }
 
-//     const countryURL = `https://v6.exchangerate-api.com/v6/${exchangeAPIkey}/codes`
-//     fetch(countryURL).then(function(response){
-//         return response.json();
-//     }).then(function(data){
-//         console.log(data)
-//     });
-// }  
-
-// const conversion = function (departure, destination, budget){
-
-//     const conversionURL = `https://v6.exchangerate-api.com/v6/${exchangeAPIkey}/pair/${}/${}/${budget}`
-// }
-
-// travelForm.addEventListener("submit", chooseYourCountry);
+travelForm.addEventListener("submit", chooseYourCountry);
