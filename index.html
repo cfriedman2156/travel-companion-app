@@ -11,39 +11,75 @@
     <title>Travel Companion App</title>
 </head>
 <body>
-    <header class="bg-primary">
-        <h1 class="text-5xl font-sans">Travel Companion App</h1>
+
+    <header class="hero min-h-screen" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-7xl font-bold drop-shadow-xl">Travel Companion</h1>
+            <p class="mb-5 text-xl">Here you can convert your travel budget into the currency of the country you're visiting</p>
+            <button class="btn btn-primary"><a href="#form-section">Get Started</a></button>
+          </div>
+        </div>
     </header>
-    <main>
-        <section id="float-left">
-            <section id="form-section">
-                <form>
-                    <h2>Departing From</h2>
-                    <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="departure-input">
-                    <h2>Destination</h2>
-                    <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="destination-input">
-                    <h2>Budget</h2>
-                    <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="budget-input">
-                    <br>
-                    <button class="btn btn-primary" id="submit-button">Submit</button>
-                </form>
+
+    <main class="flex flex-row">
+        <section class="basis-1/4" id="float-left">
+            <section class="m-10 card w-100 bg-base-100 shadow-xl">
+                <section class="card-body" id="form-section">
+                    <form>
+                        <h2 class="p-2 text-2xl">Departing From</h2>
+                        <input type="text" placeholder="Country" class="input input-bordered input-primary w-full max-w-xs" id="departure-input">
+                        <h2 class="p-2 text-2xl">Destination</h2>
+                        <input type="text" placeholder="Country" class="input input-bordered input-primary w-full max-w-xs" id="destination-input">
+                        <h2 class="p-2 text-2xl">Budget</h2>
+                        <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="budget-input">
+                        <br>
+                        <button class="m-2 w-100 btn btn-primary" id="submit-button">Submit</button>
+                    </form>
+                </section>
             </section>
-            <section id="search-history-section">
-                <h2>Search History</h2>
-                <section id="search-history-list">
-                    <!--Append Search History here-->
+            <section class="m-10 card w-96 bg-base-100 shadow-xl" id="search-history-section">
+                <section class="card-body">
+                    <h2 class="p-2 text-2xl">Search History</h2>
+                    <section id="search-history-list">
+                        <!--Append Search History here-->
+                    </section>
                 </section>
             </section>
         </section>
-        <section id="float-right">
-            <section id="results">
+        <section class = "basis-3/4 m-10" id="float-right">
+            <section class="container card w-100 bg-base-100 shadow-xl" id="results-section">
                 <!--Append Results Here-->
+                <!--Placeholder start-->
+                <section class="card-body">
+                    <h2 class="p-2 text-2xl">Results:</h2>
+                    <section id="results-box">
+                        <p class="ml-4 p-2">Your destination uses XXX CURRENCY</p>
+                        <p class="ml-4 p-2">Your budget of XXX CURRENCY converts into XXX CURRENCY</p>
+                        <h3 class="p-2 text-xl">Additional Info:</h3>
+                        <p class="ml-4 p-2">Spoken Languages:</p>
+                        <p class="ml-4 p-2">Capital City:</p>
+                        <p class="ml-4 p-2">Placeholder:</p>
+                        <p class="ml-4 p-2">Placeholder:</p>
+                        <p class="ml-4 p-2">Placeholder:</p>
+                    </section>
+                </section>
+                <!--Placeholder end-->
             </section>
         </section>
     </main>
-    <footer>
-        <h2>Built by a unit of absolute units</h2>
-    </footer>
+    <footer class="footer footer-center p-5 bg-base-200 text-base-content rounded">
+        <aside>
+            <p>Built by a unit of Absolute Units 💪🫡</p>
+        </aside>
+        <nav class="grid grid-flow-col gap-4">
+          <a class="link link-hover" href = "https://cfriedman2156.github.io/Personal-Portfolio/" target=”_blank”>Chase's Portfolio</a>
+          <a class="link link-hover">Josh's Portfolio</a>
+          <a class="link link-hover" href = "https://jasongalas.github.io/coding-portfolio/" target=”_blank”>Jason's Portfolio</a>
+          <a class="link link-hover" href = "https://adrianxdaniel.github.io/portfolio-webpage/" target=”_blank”>Adrian's Portfolio</a>
+        </nav> 
+      </footer>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src = "assets/script.js"></script>
 </body>
