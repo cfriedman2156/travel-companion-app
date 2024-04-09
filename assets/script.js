@@ -20,6 +20,7 @@ const apiKey = "gmOSLi0sE4brs48eLQFJxPwT0WY7uqOLMbpkbmKC";
 
 bootSearchHistory();
 travelForm.addEventListener("submit", submitSearch);
+searchHistory.addEventListener("click", searchHistoryClick);
 
 function submitSearch(event) {
   event.preventDefault();
@@ -30,11 +31,11 @@ function submitSearch(event) {
   budgetValue = budget;
 
   if (departure && destination && budget) {
-    getCountryCodes(departure, destination, budget);
+    getCountryCodes(departure, destination, budget, true);
   }
 }
 
-function getCountryCodes(departure, destination, budget) {
+function getCountryCodes(departure, destination, budget, isSubmit) {
   const departureUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${departure}`;
   fetch(departureUrl)
     .then(function (response) {
@@ -57,7 +58,10 @@ function getCountryCodes(departure, destination, budget) {
 
               destinationCodeValue = destinationCode;
 
-              appendSearchHistory(departure, destination);
+              if (isSubmit === true) {
+                appendSearchHistory(departure, destination);
+              }
+              
               getCurrency(departureCode, destinationCode);
               conversion(departureCode, destinationCode, budget);
             } else {
@@ -102,7 +106,7 @@ function appendSearchHistory(departure, destination) {
   if (searchHistoryArray === null) {
     return;
   } else {
-    searchHistoryArray.push(`From ${departure} to ${destination}`);
+    searchHistoryArray.push(`Depart: ${departure} Arrive: ${destination} Budget: ${budgetValue}`);
     localStorage.setItem("Search History", JSON.stringify(searchHistoryArray));
     renderSearchHistory();
   }
@@ -113,7 +117,7 @@ function renderSearchHistory() {
   for (let index = 0; index < searchHistoryArray.length; index++) {
     const newButton = document.createElement("button");
     newButton.setAttribute("type", "button");
-    newButton.setAttribute("class", "btn past-search-button");
+    newButton.setAttribute("class", "btn past-search-button m-2");
     newButton.setAttribute("data-search", searchHistoryArray[index]);
     newButton.textContent = searchHistoryArray[index];
     searchHistory.appendChild(newButton);
@@ -136,6 +140,12 @@ function searchHistoryClick(event) {
   }
   const historyButton = event.target;
   const search = historyButton.getAttribute("data-search");
+  search.split(" ");
+  console.log(search.split(" "))
+  const departure = search.split(" ")[1];
+  const destination = search.split(" ")[3];
+  const budget = search.split(" ")[5];
+  getCountryCodes(departure, destination, budget, false)
 }
 
 const conversion = function (departureCode, destinationCode, budget) {
