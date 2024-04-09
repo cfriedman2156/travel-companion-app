@@ -97,7 +97,7 @@ function getCurrency(departureCode, destinationCode) {
           console.log(destinationCurrencyName);
           destinationCurrencyValue = destinationCurrencyName;
         }
-        displayResults();
+        
       }
     });
 }
@@ -119,7 +119,19 @@ function renderSearchHistory() {
     newButton.setAttribute("type", "button");
     newButton.setAttribute("class", "btn past-search-button m-2");
     newButton.setAttribute("data-search", searchHistoryArray[index]);
-    newButton.textContent = searchHistoryArray[index];
+    
+    // Split the string into an array of words
+    const words = searchHistoryArray[index].split(' ');
+
+    // Group words into pairs
+    let lines = '';
+    for (let i = 0; i < words.length; i += 2) {
+      lines += words.slice(i, i + 2).join(' ') + '<br>';
+    }
+
+    // Set button text content with pairs joined by line breaks
+    newButton.innerHTML = lines; // Using innerHTML to render HTML
+
     searchHistory.appendChild(newButton);
   }
 }
@@ -162,6 +174,7 @@ const conversion = function (departureCode, destinationCode, budget) {
       console.log(conversionResult);
       conversionRateValue = conversionRate;
       conversionResultValue = conversionResult;
+      displayResults();
     });
 };
 
