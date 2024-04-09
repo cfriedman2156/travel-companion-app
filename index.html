@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <title>Travel Companion App</title>
 </head>
+
 <body>
 
-    <header class="hero min-h-screen" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
+    <header class="hero min-h-screen"
+        style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-center text-neutral-content">
-          <div class="max-w-md">
-            <h1 class="mb-5 text-7xl font-bold drop-shadow-xl">Travel Companion</h1>
-            <p class="mb-5 text-xl">Here you can convert your travel budget into the currency of the country you're visiting</p>
-            <button class="btn btn-primary"><a href="#form-section">Get Started</a></button>
-          </div>
+            <div class="max-w-md">
+                <h1 class="mb-5 text-7xl font-bold drop-shadow-xl">Travel Companion</h1>
+                <p class="mb-5 text-xl" style="color: white; font-size: 20px; text-shadow: -2px -2px black;">Here you can convert your travel budget into the currency of the country you're
+                    visiting</p>
+                <a href="#form-section"><button class="btn btn-primary">Get Started</button></a>
+            </div>
         </div>
     </header>
 
-    <main class="bg-gray-200 flex flex-row">
+    <main class="flex flex-row">
         <section class="basis-1/4" id="float-left">
             <section class="m-10 card w-100 bg-base-100 shadow-xl">
                 <section class="card-body" id="form-section">
                     <form>
                         <h2 class="p-2 text-2xl">Departing From</h2>
-                        <input type="text" placeholder="Country" class="input input-bordered input-primary w-full max-w-xs" id="departure-input">
+                        <input type="text" placeholder="Country"
+                            class="input input-bordered input-primary w-full max-w-xs" id="departure-input">
                         <h2 class="p-2 text-2xl">Destination</h2>
-                        <input type="text" placeholder="Country" class="input input-bordered input-primary w-full max-w-xs" id="destination-input">
+                        <input type="text" placeholder="Country"
+                            class="input input-bordered input-primary w-full max-w-xs" id="destination-input">
                         <h2 class="p-2 text-2xl">Budget</h2>
-                        <input type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" id="budget-input">
+                        <input type="text" placeholder="Type here"
+                            class="input input-bordered input-primary w-full max-w-xs" id="budget-input">
                         <br>
+                        <!-- ADDED PATH TO SUBMIT BUTTON FOR MOBILE RESPONSIVENESS, SCROLLS DOWN TO RESULTS -->
                         <button class="m-2 w-100 btn btn-primary" id="submit-button">Submit</button>
                     </form>
                 </section>
@@ -48,7 +58,7 @@
                 </section>
             </section>
         </section>
-        <section class = "basis-3/4 m-10" id="float-right">
+        <section class="basis-3/4 m-10" id="float-right">
             <section class="container card w-100 bg-base-100 shadow-xl" id="results-section">
                 <!--Append Results Here-->
                 <!--Placeholder start-->
@@ -69,20 +79,22 @@
             </section>
         </section>
     </main>
-    <footer class="footer footer-center p-5 bg-gray-600 text-white text-base-content rounded">
+    <footer class="footer footer-center p-5 bg-base-200 text-base-content rounded">
         <aside>
             <p>Built by a unit of Absolute Units 💪🫡</p>
         </aside>
         <nav class="grid grid-flow-col gap-4">
-          <a class="link link-hover" href = "https://cfriedman2156.github.io/Personal-Portfolio/" target=”_blank”>Chase's Portfolio</a>
-          <a class="link link-hover" href = "https://joshyy55.github.io/joshua-portfolio/" target=”_blank”>Josh's Portfolio</a>
-          <a class="link link-hover" href = "https://jasongalas.github.io/coding-portfolio/" target=”_blank”>Jason's Portfolio</a>
-          <a class="link link-hover" href = "https://adrianxdaniel.github.io/portfolio-webpage/" target=”_blank”>Adrian's Portfolio</a>
-        </nav> 
-      </footer>
+            <a class="link link-hover" href="https://cfriedman2156.github.io/Personal-Portfolio/"
+                target=”_blank”>Chase's Portfolio</a>
+            <a class="link link-hover">Josh's Portfolio</a>
+            <a class="link link-hover" href="https://jasongalas.github.io/coding-portfolio/" target=”_blank”>Jason's
+                Portfolio</a>
+            <a class="link link-hover" href="https://adrianxdaniel.github.io/portfolio-webpage/"
+                target=”_blank”>Adrian's Portfolio</a>
+        </nav>
+    </footer>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src = "assets/script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
+
 </html>
-
-
