@@ -1,24 +1,51 @@
-
 .nunito-sans {
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
 * {
-    padding: 0px;
-    margin: 0px;
-    font-family: Helvetica;
+  padding: 0px;
+  margin: 0px;
+  font-family: Helvetica;
 }
+
+/* ADDED SCROLL BEHAVIOR TO OUR WEBAPP WHEN CLICKING ON LOCAL LINKS */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ADDED FLEX TO HERO TO CENTER IMAGE AND TEXT ON MOBILE */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
 h1 {
-    color: white;
-    padding: 20px;
+  color: white;
+  padding: 20px;
 }
 header {
-    text-align: center;
+  text-align: center;
 }
 
+/* ADDED SCROLL BEHAVIOR AND A MAXIMUM HEIGHT TO THE HISTORY LIST */
+#search-history-list {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+
+/* ADDED MEDIA QUARRY TO CHANGE TO MOBILE VIEW AT 430px width */
+@media screen and (max-width: 430px) {
+  
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2%;
+  }
+}
