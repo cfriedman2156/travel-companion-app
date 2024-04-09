@@ -16,6 +16,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+background-color: white  ;
+}
+
 /* ADDED FLEX TO HERO TO CENTER IMAGE AND TEXT ON MOBILE */
 .hero {
     display: flex;
@@ -27,6 +31,26 @@ h1 {
   color: white;
   padding: 20px;
 }
+
+
+/* adding classes to elements to brute force changes */
+.brute-h1 {
+  color: white;  
+  text-shadow: -2px -2px black;
+}
+
+.brute-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(175, 105, 255);
+}
+
+.brute-btn:hover {
+  background-color: rgb(175, 105, 255);
+  color: white;
+  border: 1px solid black;
+}
+
 header {
   text-align: center;
 }
