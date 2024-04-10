@@ -36,6 +36,10 @@ function submitSearch(event) {
   if (departure && destination && budget) {
     getCurrencyCodes(departure, destination, budget, true);
   }
+
+  departureInput.value = "";
+  destinationInput.value = "";
+  budgetInput.value = "";
 }
 
 function getCurrencyCodes(departure, destination, budget, isSubmit) {
@@ -47,7 +51,7 @@ function getCurrencyCodes(departure, destination, budget, isSubmit) {
     .then(function (departureData) {
       if (departureData) {
         const departureCode = departureData.data[0].currencyCodes[0];
-        const departureCountry = departureData.data[0].code;
+        // const departureCountry = departureData.data[0].code;
         departureCodeValue = departureCode;
 
         const destinationUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${destination}`;
@@ -177,6 +181,7 @@ function searchHistoryClick(event) {
   const departure = searchHistoryArray[search].depart;
   const destination = searchHistoryArray[search].arrive;
   const budget = searchHistoryArray[search].budget;
+  budgetValue = budget;
 
   getCurrencyCodes(departure, destination, budget, false)
 }
@@ -217,7 +222,7 @@ const displayResults = function () {
 
   title.textContent = "Results:";
   currencyNameEl.textContent = `Your destination's captial city is ${destinationCapital} and it uses the ${destinationCurrencyValue}.`;
-  conversionRateEl.textContent = `The conversion rate is ${conversionRateValue}.`;
+  conversionRateEl.textContent = `The conversion rate is ${conversionRateValue} per ${departureCurrencyValue}.`;
   currentConversionEl.textContent = `Your budget of $${budgetValue} ${departureCodeValue} converts into $${conversionResultValue} ${destinationCodeValue}.`;
 
   resultsCard.append(
