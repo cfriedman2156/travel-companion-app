@@ -8,6 +8,9 @@ let conversionResultValue = "";
 let budgetValue = "";
 let departureCodeValue = "";
 let destinationCodeValue = "";
+let destinationCountryValue = "";
+let destinationCapital = "";
+let destinationFlag = "";
 
 const exchangeAPIkey = "ba1b49989171d9b0410110d6";
 const travelForm = document.querySelector("#form-section");
@@ -31,11 +34,11 @@ function submitSearch(event) {
   budgetValue = budget;
 
   if (departure && destination && budget) {
-    getCountryCodes(departure, destination, budget, true);
+    getCurrencyCodes(departure, destination, budget, true);
   }
 }
 
-function getCountryCodes(departure, destination, budget, isSubmit) {
+function getCurrencyCodes(departure, destination, budget, isSubmit) {
   const departureUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${departure}`;
   fetch(departureUrl)
     .then(function (response) {
@@ -43,7 +46,8 @@ function getCountryCodes(departure, destination, budget, isSubmit) {
     })
     .then(function (departureData) {
       if (departureData) {
-        departureCode = departureData.data[0].currencyCodes[0];
+        const departureCode = departureData.data[0].currencyCodes[0];
+        const departureCountry = departureData.data[0].code;
         console.log(departureCode);
         departureCodeValue = departureCode;
 
@@ -52,17 +56,19 @@ function getCountryCodes(departure, destination, budget, isSubmit) {
           .then(function (response) {
             return response.json();
           })
-          .then(function (destinationData) {
+          .then(async function (destinationData) {
             if (destinationData) {
-              destinationCode = destinationData.data[0].currencyCodes[0];
-
+              const destinationCode = destinationData.data[0].currencyCodes[0];
+              const destinationCountry = destinationData.data[0].code;
               destinationCodeValue = destinationCode;
+              destinationCountryValue = destinationCountry;
 
               if (isSubmit === true) {
                 appendSearchHistory(departure, destination);
               }
               
-              getCurrency(departureCode, destinationCode);
+             await getFlagging(destinationCountry);
+             await getCurrency(departureCode, destinationCode);
               conversion(departureCode, destinationCode, budget);
             } else {
               console.log("No country data found");
@@ -74,10 +80,10 @@ function getCountryCodes(departure, destination, budget, isSubmit) {
     });
 }
 
-function getCurrency(departureCode, destinationCode) {
+async function getCurrency(departureCode, destinationCode) {
   const currencyNameUrl = `https://v6.exchangerate-api.com/v6/${exchangeAPIkey}/codes`;
 
-  fetch(currencyNameUrl)
+  return await fetch(currencyNameUrl)
     .then(function (response) {
       return response.json();
     })
@@ -102,11 +108,36 @@ function getCurrency(departureCode, destinationCode) {
     });
 }
 
+async function getFlagging () {
+
+    const countryUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries/${destinationCountryValue}`;
+    return await fetch(countryUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (countryData) {
+        if(countryData){
+            const countryCaptial = countryData.data.capital;
+            const flagImage = countryData.data.flagImageUri;
+            destinationCapital = countryCaptial;
+            destinationFlag = flagImage;
+            console.log(countryCaptial);
+            console.log(flagImage);
+        }
+        
+    });
+}
+
 function appendSearchHistory(departure, destination) {
   if (searchHistoryArray === null) {
     return;
   } else {
-    searchHistoryArray.push(`Depart: ${departure} Arrive: ${destination} Budget: ${budgetValue}`);
+    const search = {
+        depart: departure,
+        arrive: destination,
+        budget: budgetValue
+    }
+    searchHistoryArray.push(search);
     localStorage.setItem("Search History", JSON.stringify(searchHistoryArray));
     renderSearchHistory();
   }
@@ -118,17 +149,17 @@ function renderSearchHistory() {
     const newButton = document.createElement("button");
     newButton.setAttribute("type", "button");
     newButton.setAttribute("class", "btn past-search-button m-2");
-    newButton.setAttribute("data-search", searchHistoryArray[index]);
+    newButton.setAttribute("data-search", index);
     
     // Split the string into an array of words
-    const words = searchHistoryArray[index].split(' ');
+    // const words = searchHistoryArray[index].split(' ');
 
     // Group words into pairs
-    let lines = '';
-    for (let i = 0; i < words.length; i += 2) {
-      lines += words.slice(i, i + 2).join(' ') + '<br>';
-    }
-
+    let lines = `Depart: ${searchHistoryArray[index].depart} <br> Arrive: ${searchHistoryArray[index].arrive} <br> Budget: ${searchHistoryArray[index].budget}`;
+    // for (let i = 0; i < words.length; i += 2) {
+    //   lines += words.slice(i, i + 2).join(' ') + '<br>';
+    // }
+    console.log(lines);
     // Set button text content with pairs joined by line breaks
     newButton.innerHTML = lines; // Using innerHTML to render HTML
 
@@ -152,12 +183,16 @@ function searchHistoryClick(event) {
   }
   const historyButton = event.target;
   const search = historyButton.getAttribute("data-search");
-  search.split(" ");
-  console.log(search.split(" "))
-  const departure = search.split(" ")[1];
-  const destination = search.split(" ")[3];
-  const budget = search.split(" ")[5];
-  getCountryCodes(departure, destination, budget, false)
+
+    console.log(searchHistoryArray[search]);
+
+
+
+  const departure = searchHistoryArray[search].depart;
+  const destination = searchHistoryArray[search].arrive;
+  const budget = searchHistoryArray[search].budget;
+
+  getCurrencyCodes(departure, destination, budget, false)
 }
 
 const conversion = function (departureCode, destinationCode, budget) {
@@ -184,6 +219,7 @@ const displayResults = function () {
   const currencyNameEl = document.createElement("p");
   const conversionRateEl = document.createElement("p");
   const currentConversionEl = document.createElement("p");
+  const flag = document.createElement("img");
 
   resultsCard.setAttribute("class", "card-body");
   title.setAttribute("id", "title");
@@ -191,9 +227,11 @@ const displayResults = function () {
   currencyNameEl.setAttribute("class", "ml-4 p-2");
   conversionRateEl.setAttribute("class", "ml-4 p-2");
   currentConversionEl.setAttribute("class", "ml-4 p-2");
+  flag.setAttribute("id", "flag-image");
+  flag.setAttribute("src", destinationFlag);
 
   title.textContent = "Results:";
-  currencyNameEl.textContent = `Your destination uses the ${destinationCurrencyValue}.`;
+  currencyNameEl.textContent = `Your destination's captial city is ${destinationCapital} and it uses the ${destinationCurrencyValue}.`;
   conversionRateEl.textContent = `The conversion rate is ${conversionRateValue}.`;
   currentConversionEl.textContent = `Your budget of $${budgetValue} ${departureCodeValue} converts into $${conversionResultValue} ${destinationCodeValue}.`;
 
@@ -201,7 +239,8 @@ const displayResults = function () {
     title,
     currencyNameEl,
     conversionRateEl,
-    currentConversionEl
+    currentConversionEl,
+    flag
   );
 
   resultsContainer.innerHTML = "";
