@@ -16,7 +16,7 @@
 
 <body>
 
-    <header class="hero min-h-screen"
+    <header id="he-ad" class="hero min-h-screen"
         style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-center text-neutral-content">
@@ -25,8 +25,34 @@
                 <p class="mb-5 text-xl" style="color: white; font-size: 25px; text-shadow: -1px -1px black;">Here you
                     can convert your travel budget into the currency of the country you're
                     visiting</p>
-                <!-- ADDED CLASS BRUTE-BTN TO TARGET THIS BUTTON -->
-                <a href="#form-section"><button class="btn btn-primary brute-btn">Get Started</button></a>
+                    <!-- ADDED CLASS BRUTE-BTN TO TARGET THIS BUTTON -->
+                    <button class="btn brute-btn" onclick="my_modal_3.showModal()">Get Started</button>
+                    <dialog id="my_modal_3" class="modal">
+                        <div class="modal-box">
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-black absolute right-2 top-2">✕</button>
+                        </form>
+                        
+                            <section class="c-ard card-body" id = "form-section-modal" style="color: white;">
+                                <form>
+                                    <h2 class="p-2 text-gray text-2xl">Departing From</h2>
+                                    <input type="text" placeholder="Country"
+                                        class="input input-bordered input-primary w-full max-w-xs departure-input">
+                                    <h2 class="p-2 text-white text-2xl">Destination</h2>
+                                    <input type="text" placeholder="Country"
+                                        class="input input-bordered input-primary w-full max-w-xs destination-input">
+                                    <h2 class="p-2 text-white text-2xl">Budget</h2>
+                                    <input type="text" placeholder="Type here"
+                                        class="input input-bordered input-primary w-full max-w-xs budget-input">
+                                    <br>
+                                    <!-- ADDED PATH TO SUBMIT BUTTON FOR MOBILE RESPONSIVENESS, SCROLLS DOWN TO RESULTS -->
+                                    <!-- ADDED CLASS BRUTE-BTN TO TARGET THIS BUTTON -->
+                                    <button class="m-2 w-100 btn btn-primary brute-btn" id="submit-button">Submit</button>
+                                </form>
+                            </section>
+                        
+                        </div>
+                    </dialog>
             </div>
         </div>
     </header>
@@ -34,24 +60,29 @@
     <main class="flex flex-row">
         <section class="basis-1/4" id="float-left">
             <section class="m-10 card w-100 bg-base-100 shadow-xl">
-                <section class="card-body" id="form-section" style="color: white;">
+                <section class="card-body" id = "form-section" style="color: white;">
+                <a href="#he-ad"><button class="btn n-brute-btn" id ="scroll-up">Enter a New Search</button></a>
+                </section>
+            </section>
+
+
+            <!-- <section class="m-10 card w-100 bg-base-100 shadow-xl">
+                <section class="card-body" id = "form-section" style="color: white;">
                     <form>
                         <h2 class="p-2 text-2xl">Departing From</h2>
                         <input type="text" placeholder="Country"
-                            class="input input-bordered input-primary w-full max-w-xs" id="departure-input">
+                            class="input input-bordered input-primary w-full max-w-xs departure-input">
                         <h2 class="p-2 text-2xl">Destination</h2>
                         <input type="text" placeholder="Country"
-                            class="input input-bordered input-primary w-full max-w-xs" id="destination-input">
+                            class="input input-bordered input-primary w-full max-w-xs destination-input">
                         <h2 class="p-2 text-2xl">Budget</h2>
                         <input type="text" placeholder="Type here"
-                            class="input input-bordered input-primary w-full max-w-xs" id="budget-input">
+                            class="input input-bordered input-primary w-full max-w-xs budget-input">
                         <br>
-                        <!-- ADDED PATH TO SUBMIT BUTTON FOR MOBILE RESPONSIVENESS, SCROLLS DOWN TO RESULTS -->
-                        <!-- ADDED CLASS BRUTE-BTN TO TARGET THIS BUTTON -->
                         <button class="m-2 w-100 btn btn-primary brute-btn" id="submit-button">Submit</button>
                     </form>
                 </section>
-            </section>
+            </section> -->
             <section class="m-10 card w-96 bg-base-100 shadow-xl" id="search-history-section">
                 <section class="card-body">
                     <h2 class="p-2 text-2xl" style="color: white;">Search History</h2>
@@ -64,25 +95,10 @@
         <section class="basis-3/4 m-10" id="float-right">
             <section class="container card w-100 bg-base-100 shadow-xl" id="results-section" style="color: white;">
                 <!--Append Results Here-->
-                <!--Placeholder start-->
-                <!-- <section class="card-body">
-                    <h2 class="p-2 text-2xl">Results:</h2>
-                    <section id="results-box">
-                        <p class="ml-4 p-2">Your destination uses XXX CURRENCY</p>
-                        <p class="ml-4 p-2">Your budget of XXX CURRENCY converts into XXX CURRENCY</p> -->
-                <!-- <h3 class="p-2 text-xl">Additional Info:</h3>
-                        <p class="ml-4 p-2">Spoken Languages:</p>
-                        <p class="ml-4 p-2">Capital City:</p>
-                        <p class="ml-4 p-2">Placeholder:</p>
-                        <p class="ml-4 p-2">Placeholder:</p>
-                        <p class="ml-4 p-2">Placeholder:</p>
-                    </section>
-                </section> -->
-                <!--Placeholder end-->
             </section>
         </section>
     </main>
-    <footer class="footer footer-center p-5 bg-base-200 text-base-content rounded" style="color: white;">
+    <footer class="footer footer-center p-5 bg-slate-500 text-base-content rounded" style="color: white;">
         <aside>
             <p>Built by a unit of Absolute Units 💪🫡</p>
         </aside>

@@ -17,7 +17,15 @@ html {
 }
 
 body {
-  background-color: white;
+  background-color:  rgb(71 85 105);
+}
+
+.c-ard {
+background-color: rgb(30 41 59);
+}
+
+.card {
+  background-color:   rgb(51 65 85);
 }
 
 /* ADDED FLEX TO HERO TO CENTER IMAGE AND TEXT ON MOBILE */
@@ -27,19 +35,35 @@ body {
   justify-content: center;
 }
 
+#form-section-modal {
+  border-radius: 2%;
+  
+}
+
 h1 {
   color: white;
   padding: 20px;
 }
 
-.card {
-  background-color: rgb(31, 35, 43);
-}
 
 /* adding classes to elements to brute force changes */
 .brute-h1 {
   color: white;
   text-shadow: -2px -2px black;
+}
+
+.n-brute-btn  {
+  width: 300px;
+  margin: 0px 10px 0px 10px;
+  background-color: rgba(116, 128, 255);
+  color: white;
+  border: 1px solid rgba(47, 57, 76);
+}
+
+.n-brute-btn:hover {
+  background-color: rgba(116, 128, 255);
+  color: white;
+  border: 1px solid white;
 }
 
 .brute-btn {
@@ -62,10 +86,10 @@ h1 {
   background-color: rgba(47, 57, 76);
   border: 1px solid rgba(116, 128, 255);
   color: white;
-  font-family: calibri;
-  font-size: 18px;
+  font-family: helvetica;
+  font-size: 20px;
   font-weight: 530;
-  word-spacing: 1vmax;
+  word-spacing: ;
 }
 
 .past-search-button:hover {
@@ -78,6 +102,7 @@ h1 {
 header {
   text-align: center;
 }
+
 
 /* ADDED SCROLL BEHAVIOR AND A MAXIMUM HEIGHT TO THE HISTORY LIST */
 #search-history-list {
