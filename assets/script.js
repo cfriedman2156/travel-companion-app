@@ -43,7 +43,7 @@ function submitSearch(event) {
 }
 
 function getCurrencyCodes(departure, destination, budget, isSubmit) {
-  const departureUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${departure}`;
+  const departureUrl = `https://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${departure}`;
   fetch(departureUrl)
     .then(function (response) {
       return response.json();
@@ -54,7 +54,7 @@ function getCurrencyCodes(departure, destination, budget, isSubmit) {
         // const departureCountry = departureData.data[0].code;
         departureCodeValue = departureCode;
 
-        const destinationUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${destination}`;
+        const destinationUrl = `https://geodb-free-service.wirefreethought.com/v1/geo/countries?limit=5&offsett&namePrefix=${destination}`;
         fetch(destinationUrl)
           .then(function (response) {
             return response.json();
@@ -109,7 +109,7 @@ async function getCurrency(departureCode, destinationCode) {
 
 async function getFlagging () {
 
-    const countryUrl = `http://geodb-free-service.wirefreethought.com/v1/geo/countries/${destinationCountryValue}`;
+    const countryUrl = `https://geodb-free-service.wirefreethought.com/v1/geo/countries/${destinationCountryValue}`;
     return await fetch(countryUrl)
     .then(function (response) {
       return response.json();
