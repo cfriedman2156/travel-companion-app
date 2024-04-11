@@ -11,24 +11,26 @@
   font-family: Helvetica;
 }
 
-/* ADDED SCROLL BEHAVIOR TO OUR WEBAPP WHEN CLICKING ON LOCAL LINKS */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color:  rgb(71 85 105);
+  background-color: rgb(71 85 105);
 }
 
 .c-ard {
-background-color: rgb(30 41 59);
+  background-color:  rgb(51 65 85);
+}
+
+.modal-bg {
+  background-color: rgb(30, 37, 49);
 }
 
 .card {
-  background-color:   rgb(51 65 85);
+  background-color: rgb(51 65 85);
 }
 
-/* ADDED FLEX TO HERO TO CENTER IMAGE AND TEXT ON MOBILE */
 .hero {
   display: flex;
   flex-direction: column;
@@ -37,7 +39,6 @@ background-color: rgb(30 41 59);
 
 #form-section-modal {
   border-radius: 2%;
-  
 }
 
 h1 {
@@ -45,14 +46,12 @@ h1 {
   padding: 20px;
 }
 
-
-/* adding classes to elements to brute force changes */
 .brute-h1 {
   color: white;
   text-shadow: -2px -2px black;
 }
 
-.n-brute-btn  {
+.n-brute-btn {
   width: 300px;
   margin: 0px 10px 0px 10px;
   background-color: rgba(116, 128, 255);
@@ -83,7 +82,7 @@ h1 {
   height: 80px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(47, 57, 76);
+  background-color:  rgb(30, 37, 49);
   border: 1px solid rgba(116, 128, 255);
   color: white;
   font-family: helvetica;
@@ -95,21 +94,18 @@ h1 {
   border: 1px solid rgba(116, 128, 255);
   outline: 2px solid rgba(116, 128, 255);
   outline-offset: 2px;
-  background-color: rgba(47, 57, 76);
+  background-color:  rgb(30, 37, 49);
 }
 
 header {
   text-align: center;
 }
 
-
-/* ADDED SCROLL BEHAVIOR AND A MAXIMUM HEIGHT TO THE HISTORY LIST */
 #search-history-list {
   overflow-y: auto;
   max-height: 200px;
 }
 
-/* ADDED MEDIA QUARRY TO CHANGE TO MOBILE VIEW AT 430px width */
 @media screen and (max-width: 430px) {
   main {
     display: flex;
