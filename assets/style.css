@@ -20,7 +20,7 @@ body {
 }
 
 .c-ard {
-  background-color:  rgb(51 65 85);
+  background-color: rgb(51 65 85);
 }
 
 .modal-bg {
@@ -78,11 +78,11 @@ h1 {
 }
 
 .past-search-button {
-  width: 285px;
+  width: 280px;
   height: 80px;
   display: flex;
   flex-direction: column;
-  background-color:  rgb(30, 37, 49);
+  background-color: rgb(30, 37, 49);
   border: 1px solid rgba(116, 128, 255);
   color: white;
   font-family: helvetica;
@@ -94,19 +94,37 @@ h1 {
   border: 1px solid rgba(116, 128, 255);
   outline: 2px solid rgba(116, 128, 255);
   outline-offset: 2px;
-  background-color:  rgb(30, 37, 49);
+  background-color: rgb(30, 37, 49);
 }
 
 header {
   text-align: center;
 }
 
-#search-history-list {
-  overflow-y: auto;
-  height: 100%;
+main {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-@media screen and (max-width: 430px) {
+#flag-image {
+  transform: scale(.8);
+} 
+
+
+#search-history-section {
+  height: 74%;
+}
+
+#search-history-list {
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    width: 100%;
+  }
+
   main {
     display: flex;
     flex-direction: row;
@@ -114,5 +132,23 @@ header {
     flex-wrap: wrap;
     margin-top: 2%;
   }
+
+#search-history-section {
+  height: 40vh;
 }
 
+#search-history-list {
+  overflow-y: auto;
+  max-height: 25vh;
+}
+
+
+  
+
+}
+
+@media screen and (max-width: 450px) {
+  main {
+    justify-content: center;
+  }
+}
