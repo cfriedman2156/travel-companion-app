@@ -112,7 +112,7 @@ main {
 
 
 #search-history-section {
-  height: 80%;
+  height: 90vh;
 }
 
 #search-history-list {
@@ -139,10 +139,6 @@ main {
 
 
 }
-
-
-
-
 
 @media screen and (max-width: 1200px) {
   body {
