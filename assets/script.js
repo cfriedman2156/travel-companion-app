@@ -14,6 +14,7 @@ let destinationFlag = "";
 
 const exchangeAPIkey = "ba1b49989171d9b0410110d6";
 const travelFormModal = document.querySelector("#form-section-modal");
+const submitModalButton = document.querySelector("#my_modal_3");
 const departureInput = document.querySelector(".departure-input");
 const destinationInput = document.querySelector(".destination-input");
 const budgetInput = document.querySelector(".budget-input");
@@ -40,6 +41,8 @@ function submitSearch(event) {
   departureInput.value = "";
   destinationInput.value = "";
   budgetInput.value = "";
+
+
 }
 
 function getCurrencyCodes(departure, destination, budget, isSubmit) {
@@ -236,5 +239,6 @@ const displayResults = function () {
   resultsContainer.innerHTML = "";
   resultsContainer.append(resultsCard);
 
+  submitModalButton.close();
   location.replace("#results-section");
 };
