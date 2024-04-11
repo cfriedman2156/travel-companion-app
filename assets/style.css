@@ -112,13 +112,37 @@ main {
 
 
 #search-history-section {
-  height: 74%;
+  height: 80%;
 }
 
 #search-history-list {
   overflow-y: auto;
-  max-height: 800px;
+  max-height: 90%;
 }
+
+
+/* HERE BEGINS MEDIA QUERRY */
+
+@media screen and (max-width: 1500px) {
+  main {
+    justify-content: center;
+  }
+
+#search-history-section {
+  height: 75vh;
+}
+
+#search-history-list {
+  overflow-y: auto;
+  max-height: 62vh;
+}
+
+
+}
+
+
+
+
 
 @media screen and (max-width: 1200px) {
   body {
@@ -141,9 +165,6 @@ main {
   overflow-y: auto;
   max-height: 25vh;
 }
-
-
-  
 
 }
 
