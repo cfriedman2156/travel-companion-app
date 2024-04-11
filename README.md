@@ -21,11 +21,11 @@ This webapp solves the problem of having to go to a calcalutor and fuguring out 
 when the website is openes you are introduced to this
 ![alt text](<Screenshot 2024-04-11 101550.png>)
 
-when you press the start button this form will pop up
-![alt text](<Screenshot 2024-04-11 101628.png>)
+when you press the start button this form will pop up\
+![alt text](<Screenshot 2024-04-11 112236.png>)
 
 from there you fill your information and this is how it should look once you are finished.
-![alt text](image.png)
+![alt text](<Screenshot 2024-04-11 112305.png>)
 
 
 ## Credits
