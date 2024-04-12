@@ -12,6 +12,9 @@ With the first phase of this three month bootcamp soon to be in our rearview win
 This web app works in any browser, responsively adpating to whatever screen you're using to access it.
 
 ## Usage
+
+https://cfriedman2156.github.io/travel-companion-app/\
+
 When the website is openes you are introduced to this landing page:
 ![alt text](<assets/images/Screenshot 2024-04-11 101550.png>)
 
