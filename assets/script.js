@@ -148,7 +148,7 @@ function renderSearchHistory() {
   for (let index = 0; index < searchHistoryArray.length; index++) {
     const newButton = document.createElement("button");
     newButton.setAttribute("type", "button");
-    newButton.setAttribute("style", "text-align: left;");
+    newButton.setAttribute("style", "text-align: center;");
     newButton.setAttribute("class", "btn past-search-button m-2");
     newButton.setAttribute("data-search", index);
     
@@ -156,7 +156,7 @@ function renderSearchHistory() {
     // const words = searchHistoryArray[index].split(' ');
 
     // Group words into pairs
-    let lines = `Depart: ${searchHistoryArray[index].depart} <br> &nbsp;&nbsp;Arrive: ${searchHistoryArray[index].arrive} <br> Budget: ${searchHistoryArray[index].budget}`;
+    let lines = `Depart: ${searchHistoryArray[index].depart} <br> Arrive: ${searchHistoryArray[index].arrive} <br> Budget: ${searchHistoryArray[index].budget}`;
     
     // Set button text content with pairs joined by line breaks
     newButton.innerHTML = lines; // Using innerHTML to render HTML
