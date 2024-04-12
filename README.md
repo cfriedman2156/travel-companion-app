@@ -1,31 +1,27 @@
-# travel-companion-app
+# TRVLR
 
-Welcome to our travel companion app we hope it helps you with your needs and wants. 
-
-
-## Table of Contents
-
-- [Description](#description)
-- [Usage](#usage)
-- [Credits](#credits)
+Welcome to TRVLR, a travel companion app where you can input your departure country, your destination country, and your budget. It also gives you a fun fact in your destination's capital city as well as that nation's flag. We hope it helps you with planning your next getaway adventure.
 
 
 ## Description
 
-This is web app that helps with travel by converting currency to where your heading to, This app was made to help you Know how much money you are taking with the currency of the country your going. 
-We made this to make travel something easier to understand, when you have a budget you will know how much that will be worth to the other country.
-This webapp solves the problem of having to go to a calcalutor and fuguring out how much your money can be when here you can even organize a chained travel and see how much one countries currency will transfer to another.
+With the first phase of this three month bootcamp soon to be in our rearview window, we decided that we're already looking forward to the vacation(s) we'll be taking once this is over and done with. To that end, we designed TRVLR, a web app that helps those traveling abroad by converting your budget into the currency of your desired destination. We wanted to make sure you could be anywhere in the world going anywhere in the world and get the most accurate information as per the APIs we enlisted in this app. TRVLR solves this problem by giving you a sleek and easy to understand interface that displays calculations cleanly and clearly. Whether you're planning a long term vacation or doing a last minute excursion on a whim and a dime, this app was made to help you know how much money you are taking with the currency of the country you're going to!
 
+## Installation
+
+This web app works in any browser, responsively adpating to whatever screen you're using to access it.
 
 ## Usage
-when the website is openes you are introduced to this
-![alt text](<Screenshot 2024-04-11 101550.png>)
+When the website is openes you are introduced to this landing page:
+![alt text](<assets/images/Screenshot 2024-04-11 101550.png>)
 
-when you press the start button this form will pop up\
-![alt text](<Screenshot 2024-04-11 112236.png>)
+When you click the "Get Started" button this form will pop up, where you'll enter your departure country, your destination country, and your budget amount. We have put in failsafes in case the country is mispelled or not found.
+![alt text](<assets/images/Screenshot 2024-04-11 112236.png>)
 
-from there you fill your information and this is how it should look once you are finished.
-![alt text](<Screenshot 2024-04-11 112305.png>)
+After you fill your information and hit submit, this is how it should look once you are finished.
+![alt text](<assets/images/Screenshot 2024-04-11 112305.png>)
+
+There is a button to the top left where you can return to our landing screen to start the process again with a new query. You can also click through your search history to revisit previous calculations. This information is saved in your browser's local storage.
 
 
 ## Credits
@@ -38,3 +34,4 @@ https://geodb-cities-api.wirefreethought.com/\
 https://www.exchangerate-api.com/
 
 
+Special thanks to Drew and Kyle for the support and the help, and shoutout to the entire coding bootcamp for pulling through project 1!
