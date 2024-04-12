@@ -148,6 +148,7 @@ function renderSearchHistory() {
   for (let index = 0; index < searchHistoryArray.length; index++) {
     const newButton = document.createElement("button");
     newButton.setAttribute("type", "button");
+    newButton.setAttribute("style", "text-align: center;");
     newButton.setAttribute("class", "btn past-search-button m-2");
     newButton.setAttribute("data-search", index);
     
@@ -217,9 +218,9 @@ const displayResults = function () {
   resultsCard.setAttribute("class", "card-body");
   title.setAttribute("id", "title");
   title.setAttribute("class", "p-2 text-2xl");
-  currencyNameEl.setAttribute("class", "ml-4 p-2");
-  conversionRateEl.setAttribute("class", "ml-4 p-2");
-  currentConversionEl.setAttribute("class", "ml-4 p-2");
+  currencyNameEl.setAttribute("class", "ml-4");
+  conversionRateEl.setAttribute("class", "ml-4");
+  currentConversionEl.setAttribute("class", "ml-4");
   flag.setAttribute("id", "flag-image");
   flag.setAttribute("src", destinationFlag);
 
