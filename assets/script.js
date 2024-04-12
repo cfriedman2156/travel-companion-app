@@ -225,7 +225,7 @@ const displayResults = function () {
   flag.setAttribute("src", destinationFlag);
 
   title.textContent = "Results:";
-  currencyNameEl.textContent = `Your destination's captial city is ${destinationCapital} and it uses the ${destinationCurrencyValue}.`;
+  currencyNameEl.textContent = `Your destination's capital city is ${destinationCapital} and it uses the ${destinationCurrencyValue}.`;
   conversionRateEl.textContent = `The conversion rate is ${conversionRateValue} per ${departureCurrencyValue}.`;
   currentConversionEl.textContent = `Your budget of $${budgetValue} ${departureCodeValue} converts into $${conversionResultValue} ${destinationCodeValue}.`;
 
