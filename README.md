@@ -13,16 +13,16 @@ This web app works in any browser, responsively adpating to whatever screen you'
 
 ## Usage
 
-https://cfriedman2156.github.io/travel-companion-app/\
+Deployed site: https://cfriedman2156.github.io/travel-companion-app/
 
-When the website is openes you are introduced to this landing page:
-![alt text](<assets/images/Screenshot 2024-04-11 101550.png>)
+When the website is opened you are introduced to this landing page:
+![hero screenshot](<assets/images/Screenshot 2024-04-11 101550.png>)
 
 When you click the "Get Started" button this form will pop up, where you'll enter your departure country, your destination country, and your budget amount. We have put in failsafes in case the country is mispelled or not found.
-![alt text](<assets/images/Screenshot 2024-04-11 112236.png>)
+![modal screenshot](<assets/images/Screenshot 2024-04-11 112236.png>)
 
 After you fill your information and hit submit, this is how it should look once you are finished.
-![alt text](<assets/images/Screenshot 2024-04-11 112305.png>)
+![results screenshot](<assets/images/Screenshot 2024-04-11 112305.png>)
 
 There is a button to the top left where you can return to our landing screen to start the process again with a new query. You can also click through your search history to revisit previous calculations. This information is saved in your browser's local storage.
 
